@@ -1,20 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>demo</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <style type="text/css">
+    	.txt{
+    		font-size: 25px;
+    	}
+    	.pic{
+    		width:100px;
+    		height:100px;
+    	}
+    </style>
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+    </script>
 </head>
 <body>
-<canvas id="scratch" style="width: 800px; height: 500px;"></canvas>
+<!--	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
+	<nav class="navbar navbar-fixed-top" role="navigation" >
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="sites/spider/index.html">spider</a>
+    </div>
+    <div class="navbar-header">
+        <a class="navbar-brand" href="sites/shape-shifter/index.html">文字</a>
+    </div>
+    
+    </div>
+</nav>
+<iframe id="main" src="sites/shape-shifter/index.html" width="100%" height="100%" frameborder="0"   scrolling="no"></iframe>
+<!--<iframe src="sites/shape-shifter/index.html" width="1666px" height="768px"></iframe>-->
+<!--<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<iframe src="sites/shape-shifter/index.html" width="1666px" height="768px"></iframe>
+		</div>
+	</div>
+</div>-->
 </body>
-<script type="text/javascript" src="./lib/common.js"></script>
-<script type="text/javascript" src="./lib/constraint.js"></script>
-<script type="text/javascript" src="./lib/verlet.js"></script>
-<script type="text/javascript" src="./lib/objects.js"></script>
-<script type="text/javascript" src="./lib/vec2.js"></script>
-
-<script type="text/javascript" src="./js/robot-output.js"> </script>
-<script type="text/javascript" src="./lib/pen.js"></script>
-<script type="text/javascript" src="./js/dao1.js"> </script>
+<script type="text/javascript" src="js/jquery.js" ></script>
+<script>
+	$(function(){
+		var height=window.innerHeight;
+		console.log(window.innerHeight)
+		$("#main").css("height",height+"px");
+/*		console.log(body.clientHeight)*/
+	})
+</script>
 </html>
