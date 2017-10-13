@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.pic{
+				width:300px;
+				height: 400px; 
+			}
+		</style>
+	</head>
+	<body>
+		<img  class="pic"/>
+	</body>
+<script type="text/javascript" src="js/ct_effect.js"></script>
+<!-- 玻璃破碎 -->
+<script type="text/javascript" src="js/ct_effect_brokenglass.js"></script>
+<!-- 百叶窗 -->
+<script type="text/javascript" src="js/ct_effect_blinds.js"></script>
+<!-- 溶解 -->
+<script type="text/javascript" src="js/ct_effect_dissolve.js"></script>
+<!-- 平移 -->
+<script type="text/javascript" src="js/ct_effect_translate.js"></script>
+<!-- 立方体 -->
+<script type="text/javascript" src="js/ct_effect_cube.js"></script>
+<!-- 星星 -->
+<script type="text/javascript" src="js/ct_effect_star.js"></script>
+<script src="js/pic.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var doc = document;
+		var $ = function(s, p){return (p && p.querySelector ? p : doc).querySelector(s)};
+		var img=$(".pic");
+		var imgList=picLib;
+/*		var imgList=["img/gyy.jpg","img/gyy1.jpg","img/gyy2.jpg","img/g1.gif","img/g2.gif"];*/
+		var effectList=["brokenglass","blinds","dissolve","star",];
+/*		var effectList=["brokenglass","blinds","dissolve","translate","cube","star",];*/
+		var curPath=null;
+		Array.prototype.random=function(){
+			return this[parseInt(Math.random()*this.length)];
+		}
+		var count=3;
+		function action(){
+			var path;
+			while(curPath==(path=imgList.random())){
+			}
+			console.log("curPath--"+curPath+"---path--"+path)
+			curPath=path;
+			var effect=effectList.random();
+			img.execEffect({
+				animate: effect,	// 动画类型
+				target: path,	// 替换的新图片
+				/*audio: 'renxi.mp3',	// 音效*/
+				x: 250,	// x坐标
+				y: 250	// y坐标
+			}).then(function() {
+				console.log('执行成功')
+				if(count-->0){
+					action()
+				}
+			})
+		}
+		action()
+		
+/*		setInterval(function(){
+			if(count-->0){
+			}else{
+			}
+		},2000)*/
+/*		img.addEventListener("click",function(e){
+			var path;
+			while(curPath==(path=imgList.random())){
+			}
+			console.log("curPath--"+curPath+"---path--"+path)
+			curPath=path;
+			var effect=effectList.random();
+			img.execEffect({
+				animate: effect,	// 动画类型
+				target: path,	// 替换的新图片
+			//	audio: 'renxi.mp3',	// 音效
+				x: e.offsetX,	// x坐标
+				y: e.offsetY	// y坐标
+			}).then(function() {
+				console.log('执行成功')
+			})
+		})	
+*/
+	</script>
+</html>
